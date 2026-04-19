@@ -1,6 +1,5 @@
 // EmailJS Configuration
 // =====================
-console.log('config.js: Loading configuration file...');
 
 // 
 // SETUP INSTRUCTIONS:
@@ -22,7 +21,7 @@ const EMAILJS_CONFIG = {
   // Replace these placeholder values with your actual EmailJS credentials
   SERVICE_ID: 'service_shobhit_portfolio',        // Get from: EmailJS > Email Services > Your Service > Service ID
   TEMPLATE_ID: 'template_wxfxjn4',      // Get from: EmailJS > Email Templates > Your Template > Template ID
-  PUBLIC_KEY: 'bDqJniZlROaK6aIaa'        // Get from: EmailJS > Account > API Keys > Public Key
+  PUBLIC_KEY: '1IMbcBrZvRlpyB3FD',        // Get from: EmailJS > Account > API Keys > Public Key
   
   // Email where messages will be sent (already configured in your EmailJS template)
   // This should match the email associated with your EmailJS account
@@ -35,8 +34,5 @@ if (typeof module !== 'undefined' && module.exports) {
   module.exports = EMAILJS_CONFIG;
 } else {
   // Browser environment - attach to window object
-  console.log('config.js: Attaching EMAILJS_CONFIG to window object...');
-  console.log('config.js: EMAILJS_CONFIG data:', EMAILJS_CONFIG);
   window.EMAILJS_CONFIG = EMAILJS_CONFIG;
-  console.log('config.js: Successfully attached to window. window.EMAILJS_CONFIG:', window.EMAILJS_CONFIG);
 }
