@@ -21,13 +21,13 @@ const SKILLS = {
 };
 
 const PROJECTS = [
-  {title:'Smart AI Assistant',category:'ai',desc:'A context-aware AI assistant capable of answering queries, summarizing content, and generating intelligent responses with real-time chat, memory, voice input, and streaming capabilities.',stack:['React','Node.js','OpenAI API','MongoDB'],grad:'grad-1'},
-  {title:'ML Emotion Detector',category:'ai',desc:'Real-time facial emotion detection system using CNN trained on FER2013 dataset with live webcam emotion detection, face tracking using OpenCV, and 94% accuracy.',stack:['Python','TensorFlow','OpenCV'],grad:'grad-2'},
-  {title:'DevCollab Hub',category:'web',desc:'A real-time collaborative coding platform for developers with multi-user interaction, live code sharing, room-based sessions, syntax highlighting, and real-time cursor tracking.',stack:['React','Node.js','Socket.io'],grad:'grad-3'},
-  {title:'AI Quiz Generator',category:'web',desc:'A dynamic quiz application that generates questions and evaluates performance with topic-based quiz generation, score tracking, difficulty levels, and instant feedback.',stack:['HTML','CSS','JavaScript'],grad:'grad-4'},
-  {title:'E-Commerce Website',category:'web',desc:'A responsive e-commerce interface with smooth UI and product browsing experience featuring product listing & filtering, add to cart functionality, responsive design, and smooth animations.',stack:['HTML','CSS','JavaScript'],grad:'grad-5'},
-  {title:'AI Data Analyzer',category:'ai',desc:'A smart data analysis tool that provides insights, visualizations, and predictions from datasets with CSV upload, automated visualization, ML-based predictions, and insight generation.',stack:['Python','Pandas','Matplotlib','Flask'],grad:'grad-6'},
-  {title:'Resume Analyzer (ATS + GenAI)',category:'ai',desc:'An AI-powered system that evaluates resumes and provides optimization suggestions with resume parsing, ATS scoring, skill gap detection, and AI-based recommendations.',stack:['Python','NLP','OpenAI API'],grad:'grad-1'}
+  {title:'Smart AI Assistant',category:'ai',scale:'major',desc:'A context-aware AI assistant capable of answering queries, summarizing content, and generating intelligent responses with real-time chat, memory, voice input, and streaming capabilities.',stack:['React','Node.js','OpenAI API','MongoDB'],grad:'grad-1'},
+  {title:'ML Emotion Detector',category:'ai',scale:'major',desc:'Real-time facial emotion detection system using CNN trained on FER2013 dataset with live webcam emotion detection, face tracking using OpenCV, and 94% accuracy.',stack:['Python','TensorFlow','OpenCV'],grad:'grad-2'},
+  {title:'DevCollab Hub',category:'web',scale:'major',desc:'A real-time collaborative coding platform for developers with multi-user interaction, live code sharing, room-based sessions, syntax highlighting, and real-time cursor tracking.',stack:['React','Node.js','Socket.io'],grad:'grad-3'},
+  {title:'AI Quiz Generator',category:'web',scale:'minor',desc:'A dynamic quiz application that generates questions and evaluates performance with topic-based quiz generation, score tracking, difficulty levels, and instant feedback.',stack:['HTML','CSS','JavaScript'],grad:'grad-4'},
+  {title:'E-Commerce Website',category:'web',scale:'minor',desc:'A responsive e-commerce interface with smooth UI and product browsing experience featuring product listing & filtering, add to cart functionality, responsive design, and smooth animations.',stack:['HTML','CSS','JavaScript'],grad:'grad-5'},
+  {title:'AI Data Analyzer',category:'ai',scale:'major',desc:'A smart data analysis tool that provides insights, visualizations, and predictions from datasets with CSV upload, automated visualization, ML-based predictions, and insight generation.',stack:['Python','Pandas','Matplotlib','Flask'],grad:'grad-6'},
+  {title:'Resume Analyzer (ATS + GenAI)',category:'ai',scale:'major',desc:'An AI-powered system that evaluates resumes and provides optimization suggestions with resume parsing, ATS scoring, skill gap detection, and AI-based recommendations.',stack:['Python','NLP','OpenAI API'],grad:'grad-1'}
 ];
 
 const TIMELINE = [
@@ -201,7 +201,14 @@ renderSkills('aiml');
 function renderProjects(filter){
   const grid = document.getElementById('projectsGrid');
   grid.innerHTML='';
-  const list = filter==='all' ? PROJECTS : PROJECTS.filter(p=>p.category===filter);
+  let list;
+  if(filter==='all') {
+    list = PROJECTS;
+  } else if(filter==='major' || filter==='minor') {
+    list = PROJECTS.filter(p=>p.scale===filter);
+  } else {
+    list = PROJECTS.filter(p=>p.category===filter);
+  }
   list.forEach(p=>{
     const card = document.createElement('div');
     card.className = 'project-card';
