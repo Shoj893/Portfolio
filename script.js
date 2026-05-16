@@ -21,13 +21,10 @@ const SKILLS = {
 };
 
 const PROJECTS = [
-  {title:'Smart AI Assistant',category:'ai',scale:'major',desc:'A context-aware AI assistant capable of answering queries, summarizing content, and generating intelligent responses with real-time chat, memory, voice input, and streaming capabilities.',stack:['React','Node.js','OpenAI API','MongoDB'],grad:'grad-1'},
-  {title:'ML Emotion Detector',category:'ai',scale:'major',desc:'Real-time facial emotion detection system using CNN trained on FER2013 dataset with live webcam emotion detection, face tracking using OpenCV, and 94% accuracy.',stack:['Python','TensorFlow','OpenCV'],grad:'grad-2'},
-  {title:'DevCollab Hub',category:'web',scale:'major',desc:'A real-time collaborative coding platform for developers with multi-user interaction, live code sharing, room-based sessions, syntax highlighting, and real-time cursor tracking.',stack:['React','Node.js','Socket.io'],grad:'grad-3'},
-  {title:'AI Quiz Generator',category:'web',scale:'minor',desc:'A dynamic quiz application that generates questions and evaluates performance with topic-based quiz generation, score tracking, difficulty levels, and instant feedback.',stack:['HTML','CSS','JavaScript'],grad:'grad-4'},
-  {title:'E-Commerce Website',category:'web',scale:'minor',desc:'A responsive e-commerce interface with smooth UI and product browsing experience featuring product listing & filtering, add to cart functionality, responsive design, and smooth animations.',stack:['HTML','CSS','JavaScript'],grad:'grad-5'},
-  {title:'AI Data Analyzer',category:'ai',scale:'major',desc:'A smart data analysis tool that provides insights, visualizations, and predictions from datasets with CSV upload, automated visualization, ML-based predictions, and insight generation.',stack:['Python','Pandas','Matplotlib','Flask'],grad:'grad-6'},
-  {title:'Resume Analyzer (ATS + GenAI)',category:'ai',scale:'major',desc:'An AI-powered system that evaluates resumes and provides optimization suggestions with resume parsing, ATS scoring, skill gap detection, and AI-based recommendations.',stack:['Python','NLP','OpenAI API'],grad:'grad-1'}
+  {title:'Fusion Class',category:'ai',scale:'major',desc:'AI-powered attendance management system using face and voice recognition for secure, real-time attendance marking. Features dedicated student and teacher dashboards, attendance tracking, authentication, and proxy attendance prevention using computer vision and speech recognition.',stack:['Python','Streamlit','Supabase','dlib','scikit-learn','Resemblyzer'],grad:'grad-1'},
+  {title:'Car Price Prediction System',category:'ai',scale:'minor',desc:'Developed a machine learning-based web application that predicts used car prices based on features like brand, model, fuel type, year, and kilometers driven. Implemented data preprocessing, model training, and real-time price prediction.',stack:['Python','Flask','Machine Learning','HTML','CSS','Jupyter Notebook'],grad:'grad-1'},
+  {title:'Text Summarizer',category:'web',scale:'minor',desc:'An AI-powered web application that summarizes long text using abstractive and extractive NLP techniques with customizable summary length and intelligent sentence highlighting.',stack:['Python','FastAPI','Hugging Face Transformers(T5)','PyTorch','Sentence-Transformers','scikit-learn'],grad:'grad-3'},
+  {title:'AI Quiz Generator',category:'web',scale:'minor',desc:'A dynamic quiz application that generates questions and evaluates performance with topic-based quiz generation, score tracking, difficulty levels, and instant feedback.',stack:['HTML','CSS','JavaScript'],grad:'grad-4'}
 ];
 
 const TIMELINE = [
@@ -213,12 +210,16 @@ function renderProjects(filter){
     const card = document.createElement('div');
     card.className = 'project-card';
     card.innerHTML = `
-      <div class="project-thumb ${p.grad}">
+      <div class="project-thumb ${p.grad}")>
         <div class="project-actions">
           <a href="#" class="project-action-btn github" title="GitHub">
             <svg width="16" height="16" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+          </a> 
+          <a href="#" class="project-action-btn demo" title="Live Demo">
+            <svg width="16" height="16" viewBox="0 0 24 24">
+              <path d="M7 17L17 7M9 7h8v8"/>
+            </svg>
           </a>
-          <a href="#" class="project-action-btn demo" title="Live Demo">?</a>
         </div>
       </div>
       <div class="project-body">
